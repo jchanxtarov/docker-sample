@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS flask_app;
+USE flask_app;
