@@ -16,7 +16,7 @@ class UserListAPI(Resource):
 
   def post(self):
     args = self.reqparse.parse_args()
-    user = UserModel(args.name, args.state)
+    user = UserModel(args.name)
     db.session.add(user)
     db.session.commit()
     res = UserSchema().dump(user).data

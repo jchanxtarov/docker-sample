@@ -16,7 +16,7 @@ class UserModel(db.Model):
   createTime = db.Column(db.DateTime, nullable=False, default=datetime.now)
   updateTime = db.Column(db.DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
 
-  def __init__(self, name, state):
+  def __init__(self, name):
     self.name = name
 
   def __repr__(self):
