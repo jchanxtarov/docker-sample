@@ -5,11 +5,11 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: flask_app
-      MYSQL_USER: flask
-      MYSQL_PASSWORD: flask # TODO: 置き場所変更したい
-      MYSQL_HOST: localhost
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD} # TODO: 置き場所変更したい
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       TZ: 'Asia/Tokyo'
     # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
     volumes: # DockerfileのADDと同じ役割をしている気がする
@@ -33,7 +33,7 @@ services:
     environment: 
         FLASK_APP: run.py # python run.py を flask run に置き換えている
         FLASK_ENV: development
-    command: flask run -h 0.0.0.0 # 環境ごとに設定を変更する必要
+    command: flask run -h ${APP_PORT} # 環境ごとに設定を変更する必要
     # command: make wait-mysql | flask run -h 0.0.0.
 
   swagger:
