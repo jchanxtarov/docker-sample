@@ -2,7 +2,7 @@ from datetime import datetime
 from flask_marshmallow import Marshmallow
 from flask_marshmallow.fields import fields
 from sqlalchemy_utils import UUIDType
-from database import db
+from src.database import db
 import uuid
 
 ma = Marshmallow()
