@@ -12,12 +12,8 @@ class UserModel(db.Model):
   
   id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
   name = db.Column(db.String(255), nullable=False)
-
   createTime = db.Column(db.DateTime, nullable=False, default=datetime.now)
   updateTime = db.Column(db.DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
-
-  def __init__(self, name):
-    self.name = name
 
   def __repr__(self):
     return '<UserModel {}:{}>'.format(self.id, self.name)
@@ -25,6 +21,4 @@ class UserModel(db.Model):
 class UserSchema(ma.ModelSchema):
   class Meta:
     model = UserModel
-
-  createTime = fields.DateTime('%Y-%m-%dT%H:%M:%S')
-  updateTime = fields.DateTime('%Y-%m-%dT%H:%M:%S')
+    fields = ('id', 'name')
