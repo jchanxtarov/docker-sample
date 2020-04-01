@@ -1,5 +1,5 @@
 from flask import Blueprint, request, make_response, jsonify
-from src.models import UserModel, UserSchema
+from src.models.user import UserModel, UserSchema
 from src.apis import UserAPI
 import json
 

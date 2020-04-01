@@ -21,9 +21,9 @@ services:
       - 3306:3306
     
   app:
-    build: ./src
+    build: .
     volumes:
-      - ./src:/app
+      - ./src:/src
       # - ~/.cache:/root/.cache # TODO: cacheも使ったappにしたい
     ports:
       - 5000:5000 # dockerの入り口はlocalhostの5000で受けて、docker内部のport5000に流す

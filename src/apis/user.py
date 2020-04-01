@@ -1,5 +1,4 @@
 from flask_restful import Resource, reqparse, abort
-from flask import jsonify
 from src.models.user import UserModel, UserSchema
 from src.database import db
 
