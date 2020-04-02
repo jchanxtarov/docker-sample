@@ -8,17 +8,21 @@ import uuid
 ma = Marshmallow()
 
 class UserModel(db.Model):
-  __tablename__ = 'users'
+  __tablename__ = 'user'
+  __table_args__ = {'extend_existing': True}
   
-  id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
+  # id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
+  id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255), nullable=False)
-  createTime = db.Column(db.DateTime, nullable=False, default=datetime.now)
-  updateTime = db.Column(db.DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
+  created_at = db.Column(db.DateTime, nullable=False, default=datetime.now)
+  updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
 
   def __repr__(self):
-    return '<UserModel {}:{}>'.format(self.id, self.name)
+    return '<UserModel id={id} name={name}>'.format(
+      id=self.id,
+      name=self.name
+    )
 
 class UserSchema(ma.ModelSchema):
   class Meta:
     model = UserModel
-    fields = ('id', 'name')
