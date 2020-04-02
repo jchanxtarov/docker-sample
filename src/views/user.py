@@ -5,10 +5,11 @@ import json
 
 # ルーティング設定
 user_router = Blueprint('user_router', __name__)
+userApi = UserApi()
 
 @user_router.route('', methods=['GET'])
 def getUsers():
-    users = UserApi.getUsers()
+    users = userApi.getUsers()
     
     return make_response(jsonify({
         'code': 200,
@@ -20,7 +21,7 @@ def registUser():
     # jsonデータを取得する
     jsonData = json.dumps(request.json)
     userData = json.loads(jsonData)
-    user = UserApi.postUser(userData)
+    user = userApi.postUser(userData)
 
     return make_response(jsonify({
         'code': 200,
