@@ -2,6 +2,7 @@ from flask import Blueprint, request, make_response, jsonify
 from src.models.user import UserModel, UserSchema
 from src.apis.user import UserApi
 import json
+import os
 
 # ルーティング設定
 user_router = Blueprint('user_router', __name__)
@@ -9,6 +10,7 @@ userApi = UserApi()
 
 @user_router.route('', methods=['GET'])
 def getUsers():
+    print(os.getenv('MYSQL_USER'))
     users = userApi.getUsers()
     
     return make_response(jsonify({

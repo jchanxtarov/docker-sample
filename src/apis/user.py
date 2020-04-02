@@ -3,7 +3,7 @@ from src.models.user import UserModel, UserSchema
 from src.database import db
 
 class UserApi(Resource):
-  
+
     def getUsers(self):
         results = UserModel.query.all() # consider: これで取れる仕組みが理解できていない
         users = UserSchema(many=True).dump(results)
