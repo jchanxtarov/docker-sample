@@ -14,6 +14,7 @@ def create_app():
   app.register_blueprint(room_router, url_prefix='/api/rooms')
   app.register_blueprint(user_router, url_prefix='/api/users')
   app.register_blueprint(item_router, url_prefix='/api/items')
+  app.register_blueprint(history_router, url_prefix='/api/histories')
 
   return app
 

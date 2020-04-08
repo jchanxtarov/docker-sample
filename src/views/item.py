@@ -14,7 +14,7 @@ def getItems():
     
     return make_response(jsonify({
         'code': 200,
-        'romrs': items
+        'items': items
     }))
 
 @item_router.route('', methods=['POST'])
@@ -26,5 +26,5 @@ def registItem():
 
     return make_response(jsonify({
         'code': 200,
-        'user': item
+        'item': item
     }))

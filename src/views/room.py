@@ -26,5 +26,5 @@ def registRoom():
 
     return make_response(jsonify({
         'code': 200,
-        'user': room
+        'room': room
     }))
